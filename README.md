@@ -51,7 +51,7 @@ Research
 
 I am not aware that anyone has tackled the problem of availability yet. However, I
 am conscious that if I were to propose an open format for this, it could easily segue
-into an open standard for CVs/resumes (and at the time of writing, that's exactly what
+into an open standard for CVs/résumés (and at the time of writing, that's exactly what
 I have done, which perhaps I need to work on). As it happens, there are a number of
 efforts in this realm already. While I think it is true that the current standards are
 rather simplistic for real-world usage, there may be value in concentrating on
@@ -75,7 +75,7 @@ Current ideas
 I have sketched out [an XML format](DigitalCV.xml) to record my initial ideas. This
 demo document is well-commented, and of course a real-world one does not have to be.
 
-As noted earlier, this may be straying too much into CV/resume territory, and perhaps
+As noted earlier, this may be straying too much into CV/résumé territory, and perhaps
 availability should be in a separate document. If there is value in creating a new
 CV standard, that could be pointed to in a URL reference.
 
