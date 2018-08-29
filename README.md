@@ -66,8 +66,8 @@ comments is very easy, which is useful in annotating sections. Indeed, this is w
 I am not so much in favour of JSON, even though the industry has generally gone down
 that road.
 
-YAML and TOML are possibilities, and they both support indentation, although the
-indentation can be hard to visually parse.
+YAML and TOML are possibilities, and they both support inline commenting, although the
+indentation can be hard to get right manually.
 
 Current ideas
 ---
