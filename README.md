@@ -51,10 +51,12 @@ Research
 
 I am not aware that anyone has tackled the problem of availability yet. However, I
 am conscious that if I were to propose an open format for this, it could easily segue
-into an open standard for CVs/resumes, and there are a number of efforts in this
-realm already. While I think it is true that the current standards are rather
-simplistic, there may be value in concentrating on availability on its own, and
-discovering whether software professionals would use it at all.
+into an open standard for CVs/resumes (and at the time of writing, that's exactly what
+I have done, which perhaps I need to work on). As it happens, there are a number of
+efforts in this realm already. While I think it is true that the current standards are
+rather simplistic for real-world usage, there may be value in concentrating on
+availability on its own, and discovering whether software professionals would use it at
+all.
 
 Format
 ---
@@ -67,6 +69,16 @@ that road.
 YAML and TOML are possibilities, and they both support indentation, although the
 indentation can be hard to visually parse.
 
+Current ideas
+---
+
+I have sketched out [an XML format](DigitalCV.xml) to record my initial ideas. This
+demo document is well-commented, and of course a real-world one does not have to be.
+
+As noted earlier, this may be straying too much into CV/resume territory, and perhaps
+availability should be in a separate document. If there is value in creating a new
+CV standard, that could be pointed to in a URL reference.
+
 To-do
 ---
 
@@ -74,3 +86,5 @@ To-do
 * Add links to research on CV formats and some commentary
 * Do a research piece on availability specifically
 * Make changes to the current "Digital CV" to separate the CV and availability themes
+* Investigate whether contractors/candidates are generally in favour of the wider
+visibility of skilled workers
