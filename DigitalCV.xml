@@ -250,7 +250,7 @@
 
     </digital-cv>
 
-    <digital-cv lang="en" translation-of="main">
+    <digital-cv lang="it" translation-of="main">
         <!-- This CV will inherit from the specified "translation of", and then
              anything in here will overwrite it. It is not a problem if the translation CV
              contains something that is not in the parent. If something is not in the
