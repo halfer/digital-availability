@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<digital-cvs>
+
+    <!-- The main usage of the digital CV format will be people who self-publish
+         their own CV. However, it is conceivable that folks will wish to
+         publish on behalf of someone else, e.g. a recruiter offering a client
+         list. They will need to electronically state they have consent to do so.
+
+         I wonder also whether secondary CVs can be added for the purposes of language
+         translation e.g. a CV for one person translated into both Italian and English.
+         See the second <digital-cv> for how this could be achieved.
+    -->
+    <digital-cv lang="en" id="main">
+        <meta>
+            <!-- Mandatory to work out how to parse it -->
+            <version>0.1</version>
+
+            <!-- Since the creation time can be faked, trusted hosting/mapping services
+                 could be used to reassure readers that a created date is accurate -->
+            <created-at>Tue, 28 Aug 2018 13:00:26 +0100</created-at>
+            <updated-at>Tue, 28 Aug 2018 13:00:26 +0100</updated-at>
+        </meta>
+
+        <data-protection>
+            <!-- Who has given permission for this record to be published -->
+            <!-- @todo When was consent obtained? -->
+            <!-- @todo How to add in a data controller of a third-party who has obtained consent? -->            
+            <consent type="self"></consent>
+
+            <!-- @todo How to specify how this material can be reused? -->
+            <!-- @todo How to specify who can use this material -->
+            <permissions>
+                <permission type="republish">
+                </permission>
+            </permissions>
+        </data-protection>
+
+        <!-- An optional list of a number of companies related to the person, usually for
+             the purposes of billing contract or freelance work. In general, these are not
+             companies that the person has worked for (unless they have worked for
+             themselves) -->
+        <companies>
+            <company>
+                <!-- What the company is called -->
+                <title></title>
+                <!-- Sole trader, Limited Company, etc. -->
+                <type></type>
+                <!-- Common identifiers e.g. for tax purposes -->
+                <identifiers>
+                    <identifier type="uk-vat-registration"></identifier>
+                    <identifier type="uk-companies-house"></identifier>
+                </identifiers>
+            </company>
+        </companies>
+
+        <!-- Maybe rename 'person' to 'candidate'? -->
+        <person>
+            <names>
+                <!-- It's OK not to use a real name on the internet,
+                     so these tags are optional -->
+                <name type="real">Jonathan Smith</name>
+                <name type="known-as">Jon</name>
+                <name type="nick">Jonny</name>
+                <name type="screen">halfer</name>
+            </name>
+
+            <!-- I am inclined to discourage these personal fields in the spec to reduce
+                 potential discrimination:
+
+                * Date of birth
+                * Gender
+
+                I don't think they are helpful for the seeking process, and can be gathered
+                later if an appointment is made. -->
+
+            <!-- These are optional, and are all renderings of a single address point. Is there any
+                 value in allowing multiple addresses? e.g. "addresses" groups "address" groups
+                 "point"? -->
+            <addresses>
+                <address type="postcode">B18 7TE</address>
+                <address type="postcode-fuzzed">B18 8JF</address>
+                <address type="geo">52.48969/-1.92274</address>
+                <address type="geo-fuzzed">52.48900/-1.92274</address>
+                <address type="rough">Jewellery Quarter, near Birmingham City centre</address>
+                <address type="country">UK</address>
+            </addresses>
+
+            <contacts>
+                <!-- At least one contact type should be provided -->
+                <contact type="form">https://blog.jondh.me.uk/about/</contact>
+                <contact type="email">anti-spam@jondh.me.uk</contact>
+                <contact type="obfuscated-email">talk-to-me.ws {at} jondh.me.uk</contact>
+            </contacts>
+
+            <!-- Locations are places where a person might be interested in seeking work. Adding
+                 a location does not bind a person to be interested in work offered. The shapes
+                 could be based on SVG -->
+            <locations>
+                <location id="Birmingham">
+                    <shape type="circle">
+                        <!-- Shape data here -->
+                    </shape>
+                </location>
+                <location id="Leicester">
+                    <shape type="polygon">
+                        <!-- Shape data here -->
+                    </shape>
+                </location>
+            </locations>
+        </person>
+
+        <!-- Projects are pieces of work that a seeker wishes to advertise. They can optionally
+             belong to a role. -->
+        <projects>
+            <!-- Ids are like HTML ids-->
+            <project id="tableau">
+                <title>Tableau Infrastructure</title>
+                <!-- Line wrapping supported -->
+                <description>
+                    Mostly a configuration design and implementation role, I used Apache to proxy
+                    Tableau content through a load-balanced DMZ and LAN web infrastructure. I
+                    designed a simple Git-based automation approach to make config changes clean
+                    and repeatable, all in a Windows environment.
+                </description>
+            </project>
+        </projects>
+
+        <!-- How to record the group of (clients, employers) in a single type? I would like to
+             refer to these by their `id` in the roles section -->
+
+        <!-- Roles are durations of contiguous working time for an employer or client -->
+        <roles>
+            <role>
+                <title>PHP Developer</title>
+                <description>
+                    A short contract to build an Apache-based infrastructure for Tableau Server
+                    visualisation software in a Windows-only environment. Aside from development,
+                    I got involved with ideation and project management, documentation, security
+                    analysis and code review. 
+                </description>
+
+                <!-- @todo Can employer/client be collapsed into one tag? The names "employer"
+                     have specific legal meanings, so I don't want to only allow one of these. -->
+                <client>Elbonia County Council</client>
+
+                <!-- The standard allows the specification of multiple rates, to cater for increases,
+                     or changes in the working terms e.g. perm to contract.
+
+                     @todo However I am wondering whether to get rid of this - perhaps it should be
+                     part of tel conversations and interviews, rather than brazenly advertised? -->
+                <remunerations>
+                    <remuneration currency="GBP" basis="contract" type="day">350</remuneration>
+                    <remuneration currency="GBP" basis="permanent" type="annual">45000</remuneration>
+                </remunerations>
+            </role>
+
+            <role>
+                <title>Senior PHP Developer</title>
+                <employer>Daily Planet</employer>
+                <description>
+                    A senior developer role in a start-up environment, focussing on PHP and test
+                    automation.
+                </description>
+            </role>
+        </roles>
+
+        <!-- Seeks is the whole set of orgs the person is seeking. I was considering using
+             a separate "statement" tag to allow the same one being used many times, but
+             I believe there is an XML reference system for that. -->
+        <seeks>
+            <!-- Contact from people offering employment -->
+            <seek type="employer">
+                <statement></statement>
+            </seek>
+
+            <!-- Contact from people offering fixed-term or rolling contract work (possibly involving
+                 third parties like recruiters or payroll facilitators -->
+            <seek type="client">
+                <description></description>
+            </seek>
+
+            <!-- Contact from recruiters offering permanent roles -->
+            <seek type="recruiter-permenant">
+                <description></description>
+            </seek>
+
+            <!-- Contact from recruiters offering contract roles -->
+            <seek type="recruiter-contract">
+                <description>
+                    I am open to hearing from recruiters. I prefer recruiter who have an open-book
+                    charging structure so I can see what the client is being asked to pay.
+                </description>
+            </seek>
+
+            <!-- Contact from recruiters offering roles of any type -->
+            <seek type="recruiter">
+                <description></description>
+            </seek>
+
+            <!-- Contact from people offering payroll and money escrow services. This may be beneficial
+                 when a person and a client deal directly with each other: these third parties can
+                 provide some legal stability without the expense of a recruiter -->
+            <seek type="payroll">
+                <description></description>
+            </seek>
+
+            <!-- Persons seeking contact from anyone can use the special value "all" -->
+            <seek type="all">
+                <description></description>
+            </seek>
+
+            <!-- I have omitted other types of third-party here, e.g. "accountant", since they are not
+                 a direct party to organising or facilitating a work situation -->
+        </seeks>
+
+        <!-- An optional set of references -->
+        <references>
+
+            <reference>
+                <!-- Only publish real names with explicit permission. Supports all the types of
+                     person/names -->
+                <name type="screen">Snaffler</name>
+                <role>
+                    <title>Senior Developer In Test</title>
+                </role>
+                <!-- Relationship types are 'professional' or 'personal' -->
+                <relationship type="professional">
+                    <description>
+                        Snaffler was my Team Lead when I worked at the Daily Planet.
+                    </description>
+                </relationship>
+
+                <!-- I wonder if supporting telephone numbers and emails here would be a privacy
+                     accident waiting to happen? I have omitted these for now. -->
+
+                <!-- A single reference may have several online profiles.
+
+                     Of course the ideal is a Digital CV, which would allow the joining of
+                     references in a directed graph. This would have privacy implications that
+                     might be best dealt with in the XML builder rather than in the spec,
+                     though (i.e. if you don't want to be mapped, don't add links) -->
+                <urls>
+                    <url type="digital-cv">https://www.jon-smith-elbonia.com/digital-cv.xml</url>
+                    <url type="linkedin-com">https://www.linkedin.com/in/jon-smith-elbonia</url>
+                    <url type="stackoverflow-com">https://stackoverflow.com/users/12345/snaffler</url>
+                </urls>
+            </reference>
+
+        </references>
+
+    </digital-cv>
+
+    <digital-cv lang="en" translation-of="main">
+        <!-- This CV will inherit from the specified "translation of", and then
+             anything in here will overwrite it. It is not a problem if the translation CV
+             contains something that is not in the parent. If something is not in the
+             child then it should be rendered in the parent language (English in this
+             case). -->
+    </digital-cv>
+</digital-cvs>
+
+
